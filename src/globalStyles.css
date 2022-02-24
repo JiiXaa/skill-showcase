@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap');
 
 :root {
-  --font-base: "'Cabin'", sans-serif;
+  --font-primary: "'Cabin'", sans-serif;
 
   --primary-color: #edf2f8;
   --secondary-color: #2fdd92;
