@@ -7,6 +7,7 @@ import {
   Skills,
   Testimonials,
 } from './container';
+import './App.scss';
 
 import { Navbar } from './components';
 
