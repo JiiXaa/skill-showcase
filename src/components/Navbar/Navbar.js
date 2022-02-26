@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import './Navbar.scss';
 import { images } from '../../constants';
@@ -28,29 +28,37 @@ function Navbar() {
       <div className='app__navbar-menu'>
         <HiMenuAlt4 onClick={() => setToggleHamburger(true)} />
 
-        {toggleHamburger && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ x: [300, 0], opacity: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-          >
-            <HiX onClick={() => setToggleHamburger(false)} />
-            <ul>
-              {navItems.map((item) => {
-                return (
-                  <li key={item}>
-                    <a
-                      href={`#${item}`}
-                      onClick={() => setToggleHamburger(false)}
-                    >
-                      {item}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </motion.div>
-        )}
+        <AnimatePresence>
+          {toggleHamburger && (
+            <motion.div
+              key='hamburger'
+              initial={{ x: 650 }}
+              animate={{ x: 0 }}
+              exit={{ x: 650 }}
+              transition={{ ease: 'easeOut', duration: 1.1 }}
+
+              // initial={{ opacity: 0 }}
+              // whileInView={{ x: [300, 0], opacity: 1 }}
+              // transition={{ duration: 0.8, ease: 'easeOut' }}
+            >
+              <HiX onClick={() => setToggleHamburger(false)} />
+              <ul>
+                {navItems.map((item) => {
+                  return (
+                    <li key={item}>
+                      <a
+                        href={`#${item}`}
+                        onClick={() => setToggleHamburger(false)}
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
