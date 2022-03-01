@@ -10,7 +10,6 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   position: fixed;
   z-index: 2;
-  border: 2px solid orange;
 }
 
 .app__navbar-logo-wrapper {
@@ -21,7 +20,7 @@
   img {
     width: 15rem;
 
-    @media screen and (mid-width: 1900px) {
+    @media screen and (min-width: 1900px) {
       width: 30rem;
     }
   }

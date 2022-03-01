@@ -26,7 +26,10 @@ function Navbar() {
         })}
       </ul>
       <div className='app__navbar-menu'>
-        <HiMenuAlt4 onClick={() => setToggleHamburger(true)} />
+        <HiMenuAlt4
+          className='cursor-pointer'
+          onClick={() => setToggleHamburger(true)}
+        />
 
         <AnimatePresence>
           {toggleHamburger && (
@@ -41,7 +44,10 @@ function Navbar() {
               // whileInView={{ x: [300, 0], opacity: 1 }}
               // transition={{ duration: 0.8, ease: 'easeOut' }}
             >
-              <HiX onClick={() => setToggleHamburger(false)} />
+              <HiX
+                className='cursor-pointer'
+                onClick={() => setToggleHamburger(false)}
+              />
               <ul>
                 {navItems.map((item) => {
                   return (
