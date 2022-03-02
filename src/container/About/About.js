@@ -3,34 +3,46 @@ import { motion } from 'framer-motion';
 
 import './About.scss';
 import { images } from '../../constants';
+import { urlFor, client } from '../../client';
 
-const aboutInfoEl = [
-  {
-    title: 'Front-End',
-    description:
-      'It is priority, my favorite part of web development. React.js / NextJS are my favorite',
-    imgUrl: images.about01,
-  },
-  {
-    title: 'Back-End',
-    description: 'Could not imagine web development without it. Node.js mostly',
-    imgUrl: images.about01,
-  },
-  {
-    title: 'Utilities',
-    description:
-      'SCSS / styled-components, Redux / Context, GitHub, NPM, Postman / Insomnia, Stripe, and more...',
-    imgUrl: images.about01,
-  },
-  {
-    title: 'Utilities',
-    description:
-      'SCSS / styled-components, Redux / Context, GitHub, NPM, Postman / Insomnia, Stripe, and more...',
-    imgUrl: images.about01,
-  },
-];
+// const aboutInfoEl = [
+//   {
+//     title: 'Front-End',
+//     description:
+//       'It is priority, my favorite part of web development. React.js / NextJS are my favorite',
+//     imgUrl: images.about01,
+//   },
+//   {
+//     title: 'Back-End',
+//     description: 'Could not imagine web development without it. Node.js mostly',
+//     imgUrl: images.about01,
+//   },
+//   {
+//     title: 'Utilities',
+//     description:
+//       'SCSS / styled-components, Redux / Context, GitHub, NPM, Postman / Insomnia, Stripe, and more...',
+//     imgUrl: images.about01,
+//   },
+//   {
+//     title: 'Utilities',
+//     description:
+//       'SCSS / styled-components, Redux / Context, GitHub, NPM, Postman / Insomnia, Stripe, and more...',
+//     imgUrl: images.about01,
+//   },
+// ];
 
 function About() {
+  const [aboutElements, setAboutElements] = useState([]);
+
+  useEffect(() => {
+    const query = '*[_type == "aboutElements"]';
+
+    client.fetch(query).then((data) => {
+      console.log(data);
+      setAboutElements(data);
+    });
+  }, []);
+
   return (
     <>
       <h2 className='head-text'>
@@ -42,7 +54,7 @@ function About() {
       </h2>
 
       <div className='app__profiles'>
-        {aboutInfoEl.map((about, i) => (
+        {aboutElements.map((about, i) => (
           <motion.div
             whileInView={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
@@ -50,7 +62,7 @@ function About() {
             className='app__profile-item'
             key={about.title + i}
           >
-            <img src={about.imgUrl} alt={about.title} />
+            <img src={urlFor(about.imgUrl)} alt={about.title} />
             <h2 className='bold-text' style={{ marginTop: 20 }}>
               {about.title}
             </h2>
