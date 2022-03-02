@@ -5,4 +5,6 @@ import react from '../assets/react.png';
 import redux from '../assets/redux.png';
 import node from '../assets/node.png';
 
-export default { myLogo, profilePic, circle, react, redux, node };
+import about01 from '../assets/about01.jpg';
+
+export default { myLogo, profilePic, circle, react, redux, node, about01 };

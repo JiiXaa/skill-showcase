@@ -33,8 +33,8 @@ function Header() {
           </div>
 
           <div className='tag-cmp app__flex'>
-            <p>Web Developer</p>
-            <p>Full Stack</p>
+            <p> Full Stack</p>
+            <p style={{ paddingTop: 2 }}>Web Developer</p>
           </div>
         </div>
       </motion.div>
