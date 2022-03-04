@@ -4,9 +4,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import './Navbar.scss';
 import { images } from '../../constants';
-import { navItems } from '../../constants/items';
 
-// const navItems = ['home', 'about', 'projects', 'skills', 'contact'];
+const navItems = ['home', 'about', 'projects', 'skills', 'contact'];
 
 function Navbar() {
   const [toggleHamburger, setToggleHamburger] = useState(false);

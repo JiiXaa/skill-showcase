@@ -13,7 +13,7 @@
 
 .app__container {
   width: 100%;
-  min-height: 100vh;
+  // min-height: 100vh;
   display: flex;
   flex-direction: row;
 }
@@ -45,7 +45,6 @@
   align-items: flex-end;
 
   p {
-    font-size: 0.9rem;
     text-transform: uppercase;
     color: var(--black-color);
   }
@@ -107,7 +106,6 @@
   padding: 1rem;
 
   div {
-    cursor: pointer;
     width: 40px;
     height: 40px;
     border-radius: 50%;

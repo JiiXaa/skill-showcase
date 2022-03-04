@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import './Navbar.scss';
 import { images } from '../../constants';
-import { navItems } from '../../constants/items';
+// import { navItems } from '../../constants/items';
 
 // const navItems = ['home', 'about', 'projects', 'skills', 'contact'];
 

@@ -51,4 +51,4 @@ function About() {
   );
 }
 
-export default AppWrapper(About, 'about');
+export default About;
