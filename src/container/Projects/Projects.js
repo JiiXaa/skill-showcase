@@ -46,7 +46,7 @@ function Projects() {
       <h2 className='head-text'>
         My Portfolio
         <span> Projects </span>
-        Expirience
+        Experience
       </h2>
 
       <div className='app__projects-filter'>

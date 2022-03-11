@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -10,9 +10,30 @@ import { navItems } from '../../constants/items';
 
 function Navbar() {
   const [toggleHamburger, setToggleHamburger] = useState(false);
+  const [navSize, setNavSize] = useState('10rem');
+  const [navColor, setNavColor] = useState('transparent');
+
+  const listenScrollEvent = () => {
+    window.scrollY > 10 ? setNavColor('#252734') : setNavColor('transparent');
+    window.scrollY > 10 ? setNavSize('6rem') : setNavSize('10rem');
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', listenScrollEvent);
+    return () => {
+      window.removeEventListener('scroll', listenScrollEvent);
+    };
+  }, []);
 
   return (
-    <nav className='app__navbar'>
+    <nav
+      className='app__navbar'
+      style={{
+        backgroundColor: navColor,
+        height: navSize,
+        transition: 'all 1s',
+      }}
+    >
       <div className='app__navbar-logo-wrapper'>
         <img src={images.myLogo} alt='logo with my name' />
       </div>

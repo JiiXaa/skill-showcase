@@ -8,14 +8,19 @@ const SocialMedia = () => {
       <a
         href='https://www.linkedin.com/in/tomasz-ostroga-9753301a3'
         target='_blank'
+        rel='noreferrer'
       >
         <FaLinkedinIn />
       </a>
 
-      <a href='https://github.com/JiiXaa' target='_blank'>
+      <a href='https://github.com/JiiXaa' target='_blank' rel='noreferrer'>
         <BsGithub />
       </a>
-      <a href='https://www.facebook.com/tomasz.ostroga' target='_blank'>
+      <a
+        href='https://www.facebook.com/tomasz.ostroga'
+        target='_blank'
+        rel='noreferrer'
+      >
         <FaFacebookF />
       </a>
     </div>
