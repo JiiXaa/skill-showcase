@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { motion } from 'framer-motion';
 
-import { AppWrapper } from '../../wrapper';
+import { AppWrapper, MotionWrapper } from '../../wrapper';
 import { urlFor, client } from '../../client';
 
 import './Projects.scss';
 
-const filterItems = ['JavaScript', 'ReactJS', 'NodeJS', 'All'];
-
-const handleProjectsFilter = (item) => {};
+const filterItems = ['JavaScript', 'ReactJS', 'NodeJS', 'NextJS', 'All'];
 
 function Projects() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -25,6 +23,23 @@ function Projects() {
       setFilterProjects(data);
     });
   }, []);
+
+  const handleProjectsFilter = (item) => {
+    setActiveFilter(item);
+    setAnimateCard([{ y: 100, opacity: 0 }]);
+
+    setTimeout(() => {
+      setAnimateCard([{ y: 0, opacity: 1 }]);
+
+      if (item === 'All') {
+        setFilterProjects(projects);
+      } else {
+        setFilterProjects(
+          projects.filter((project) => project.tags.includes(item))
+        );
+      }
+    }, 500);
+  };
 
   return (
     <>
@@ -112,4 +127,8 @@ function Projects() {
   );
 }
 
-export default AppWrapper(Projects, 'projects');
+export default AppWrapper(
+  MotionWrapper(Projects, 'app__projects'),
+  'projects',
+  'app__primarybg'
+);
