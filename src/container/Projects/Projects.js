@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { motion } from 'framer-motion';
 
 import { AppWrapper, MotionWrapper } from '../../wrapper';
@@ -72,42 +71,6 @@ function Projects() {
           <div className='app__projects-item app__flex' key={i}>
             <div className='app__projects-img app_flex'>
               <img src={urlFor(project.imgUrl)} alt={project.name} />
-
-              <motion.div
-                whileHover={{ opacity: [0, 1] }}
-                transition={{
-                  duration: 0.25,
-                  ease: 'easeInOut',
-                  staggerChildren: 0.4,
-                }}
-                className='app__projects-hover app__flex'
-              >
-                <a href={project.projectLink} target='_blank' rel='noreferrer'>
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.9] }}
-                    transition={{
-                      duration: 0.25,
-                    }}
-                    className='app__flex'
-                  >
-                    <AiFillEye />
-                  </motion.div>
-                </a>
-
-                <a href={project.codeLink} target='_blank' rel='noreferrer'>
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.9] }}
-                    transition={{
-                      duration: 0.25,
-                    }}
-                    className='app__flex'
-                  >
-                    <AiFillGithub />
-                  </motion.div>
-                </a>
-              </motion.div>
             </div>
 
             <div className='app__projects-content app__flex'>
@@ -116,8 +79,29 @@ function Projects() {
                 {project.description}
               </p>
 
-              <div className='app__projects-tag app__flex'>
-                <p className='p-text'>{project.tags[0]}</p>
+              <div className='app__projects-goto app__flex'>
+                <div className='app__projects-goto-item'>
+                  <a
+                    href={project.projectLink}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Live
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </a>
+                </div>
+                <div className='app__projects-goto-item'>
+                  <a href={project.codeLink} target='_blank' rel='noreferrer'>
+                    Code
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

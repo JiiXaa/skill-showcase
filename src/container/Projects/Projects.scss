@@ -11,7 +11,7 @@
   align-items: center;
   flex-wrap: wrap;
 
-  margin: 4rem 0 2rem;
+  margin: 2rem 0 2rem;
 
   .app__projects-filter-item {
     padding: 0.5rem 1rem;
@@ -55,7 +55,7 @@
     border-radius: 0.5rem;
     background-color: #fff;
     color: #000;
-    cursor: pointer;
+    // cursor: pointer;
     transition: all 0.3s ease;
 
     &:hover {
@@ -147,5 +147,71 @@
     padding: 0.5rem 1rem;
     border-radius: 10px;
     background-color: #fff;
+  }
+
+  .app__projects-goto {
+    margin-top: 1rem;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #f2f7fb;
+    border: 2px solid #f9fffc;
+
+    .app__projects-goto-item {
+      width: 100%;
+      height: 4rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        position: relative;
+        padding: 0.6rem 2rem;
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: all 0.5s;
+        z-index: 0;
+
+        @media screen and (max-width: 2000px) {
+          font-size: 1rem;
+        }
+
+        &:hover {
+          color: #fff;
+        }
+
+        &:hover span {
+          transform: scaleY(1);
+        }
+
+        span {
+          position: absolute;
+          width: 25%;
+          height: 100%;
+          background-color: var(--dark-grey);
+          z-index: -1;
+          left: 0;
+          top: 0;
+          transform: scaleY(0);
+          transition: all 0.5s;
+          transform-origin: top;
+
+          &:nth-child(2) {
+            left: 25%;
+            transition-delay: 0.15s;
+          }
+
+          &:nth-child(3) {
+            left: 50%;
+            transition-delay: 0.3s;
+          }
+
+          &:nth-child(4) {
+            left: 75%;
+            transition-delay: 0.45s;
+          }
+        }
+      }
+    }
   }
 }

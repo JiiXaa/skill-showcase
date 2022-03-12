@@ -47,13 +47,6 @@ function Header() {
         className='app__header-img'
       >
         <img src={images.profilePic} alt='profile background' />
-        <motion.img
-          whileInView={{ scale: [0, 1] }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
-          className='background-circle'
-          src={images.circle}
-          alt='background circle'
-        />
       </motion.div>
 
       <motion.div
