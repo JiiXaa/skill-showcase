@@ -6,7 +6,7 @@ import { urlFor, client } from '../../client';
 
 import './Projects.scss';
 
-const filterItems = ['JavaScript', 'ReactJS', 'NodeJS', 'NextJS', 'All'];
+const filterItems = ['ReactJS', 'NodeJS', 'NextJS', 'All'];
 
 function Projects() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -43,9 +43,8 @@ function Projects() {
   return (
     <>
       <h2 className='head-text'>
-        My Portfolio
+        My
         <span> Projects </span>
-        Experience
       </h2>
 
       <div className='app__projects-filter'>
@@ -68,7 +67,14 @@ function Projects() {
         className='app__projects-portfolio'
       >
         {filterProjects.map((project, i) => (
-          <div className='app__projects-item app__flex' key={i}>
+          <a
+            href={project.projectLink}
+            target='_blank'
+            without
+            rel='noreferrer'
+            className='app__projects-item app__flex'
+            key={i}
+          >
             <div className='app__projects-img app_flex'>
               <img src={urlFor(project.imgUrl)} alt={project.name} />
             </div>
@@ -104,7 +110,7 @@ function Projects() {
                 </div>
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </motion.div>
     </>

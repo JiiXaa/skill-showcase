@@ -49,14 +49,13 @@
   .app__projects-item {
     width: 270px;
     flex-direction: column;
-
     margin: 0 2rem;
     padding: 1rem;
     border-radius: 0.5rem;
     background-color: #fff;
     color: #000;
-    // cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
 
     &:hover {
       box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
